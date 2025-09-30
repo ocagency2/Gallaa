@@ -182,8 +182,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <ul className="space-y-2 text-[#ECE8E3]/70">
                 <li><a href="#" className="hover:text-[#D4AF37] transition-colors">Help Center</a></li>
                 <li><a href="#" className="hover:text-[#D4AF37] transition-colors">Contact Us</a></li>
-                <li><a href="#" className="hover:text-[#D4AF37] transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-[#D4AF37] transition-colors">Terms of Service</a></li>
+                <li><a href="/privacy" className="hover:text-[#D4AF37] transition-colors">Privacy Policy</a></li>
+                <li><a href="/terms" className="hover:text-[#D4AF37] transition-colors">Terms of Service</a></li>
               </ul>
             </div>
           </div>
