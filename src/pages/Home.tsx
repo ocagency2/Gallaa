@@ -88,6 +88,7 @@ const Home: React.FC = () => {
               </Link>
               
               <button
+                 onClick={scrollToVideos}
                 className="reward-button group px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#08070A] rounded-xl transition-all duration-300 font-bold text-lg hover:shadow-xl hover:shadow-[#D4AF37]/30 hover:-translate-y-2 hover:scale-105 hover-glow"
               >
                 Watch Demo
