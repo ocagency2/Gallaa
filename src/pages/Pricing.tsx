@@ -335,7 +335,7 @@ const Pricing: React.FC = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
-                onClick={() => handlePayment}
+                onClick={() => handlePayment(professional)}
                 className="reward-button px-10 py-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-bold text-lg rounded-xl hover:shadow-xl hover:shadow-[#D4AF37]/30 transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 soft-glow"
               >
                 Start Free Trial
