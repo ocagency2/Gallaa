@@ -180,7 +180,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <div>
               <h4 className="font-semibold mb-4 text-[#D4AF37]">Support</h4>
               <ul className="space-y-2 text-[#ECE8E3]/70">
-                <li><a href="#" className="hover:text-[#D4AF37] transition-colors">Help Center</a></li>
+                <li><a  href="https://wa.me/919739001020"
+        target="_blank"
+        rel="noopener noreferrer" className="hover:text-[#D4AF37] transition-colors">Help Center</a></li>
                 <li><a  href="https://wa.me/919739001020"
         target="_blank"
         rel="noopener noreferrer" className="hover:text-[#D4AF37] transition-colors">Contact Us</a></li>
