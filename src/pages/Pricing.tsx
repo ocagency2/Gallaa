@@ -341,7 +341,7 @@ const Pricing: React.FC = () => {
                 Start Free Trial
                 <ArrowRight className="inline-block w-5 h-5 ml-2" />
               </button>
-              <button  href="https://wa.me/919739001020"
+              <button href="https://wa.me/919739001020"
         target="_blank"
         rel="noopener noreferrer" className="px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#08070A] rounded-xl transition-all duration-300 font-semibold hover:-translate-y-1 hover:scale-105 hover-glow">
                 Contact Sales
