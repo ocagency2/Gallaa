@@ -129,7 +129,7 @@ const Marketplace: React.FC = () => {
             Marketplace
           </h1>
           <p className="text-xl text-[#ECE8E3]/80 max-w-3xl">
-            Discover premium clothing and luxury fashion brands from verified manufacturers across India. Access exclusive wholesale pricing and credit-backed purchasing.
+           Gallaa Curated Brands Hub: get access to India’s leading premium brands and designers. Verified manufacturers, exclusive pricing, and flexible purchase options make it easy to buy upscale fashion without compromise
           </p>
         </FadeInUp>
 
