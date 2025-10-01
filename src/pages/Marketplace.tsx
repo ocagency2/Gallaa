@@ -147,21 +147,21 @@ const Marketplace: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <button className="flex items-center px-4 py-2 border-2 border-[#ECE8E3]/30 rounded-lg hover:border-[#D4AF37]/50 hover:bg-[#ECE8E3]/5 transition-all duration-300 shadow-sm shadow-black/5">
+              <button className="flex items-center px-4 py-2 border-2 border-[#ECE8E3]/30 rounded-lg hover:border-[#D4AF37]/50 hover:bg-[#ECE8E3]/5 transition-all duration-200 wobble-on-hover instant-glow">
                 <Filter className="w-4 h-4 mr-2" />
                 Filters
               </button>
 
-              <div className="flex border-2 border-[#ECE8E3]/30 rounded-lg overflow-hidden shadow-sm shadow-black/5">
+              <div className="flex border-2 border-[#ECE8E3]/30 rounded-lg overflow-hidden">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 ${viewMode === 'grid' ? 'bg-[#D4AF37] text-[#08070A]' : 'hover:bg-[#ECE8E3]/10'} transition-all duration-300`}
+                  className={`p-2 ${viewMode === 'grid' ? 'bg-[#D4AF37] text-[#08070A]' : 'hover:bg-[#ECE8E3]/10'} transition-all duration-200 instant-glow`}
                 >
                   <Grid className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-2 ${viewMode === 'list' ? 'bg-[#D4AF37] text-[#08070A]' : 'hover:bg-[#ECE8E3]/10'} transition-all duration-300`}
+                  className={`p-2 ${viewMode === 'list' ? 'bg-[#D4AF37] text-[#08070A]' : 'hover:bg-[#ECE8E3]/10'} transition-all duration-200 instant-glow`}
                 >
                   <List className="w-4 h-4" />
                 </button>
@@ -172,21 +172,21 @@ const Marketplace: React.FC = () => {
 
         <div className="flex flex-col lg:flex-row gap-8">
           <FadeInUp delay={200} className="lg:w-64 flex-shrink-0">
-            <div className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-xl p-6 shadow-md shadow-black/5">
+            <div className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-xl p-6 living-card">
               <h3 className="font-semibold mb-4">Categories</h3>
               <ul className="space-y-2">
                 {categories.map((category) => (
                   <li key={category.id}>
                     <button
                       onClick={() => setSelectedCategory(category.id)}
-                      className={`w-full text-left px-3 py-2 rounded-lg transition-all duration-300 ${
+                      className={`w-full text-left px-3 py-2 rounded-lg transition-all duration-200 ${
                         selectedCategory === category.id
-                          ? 'bg-[#D4AF37]/20 text-[#D4AF37] shadow-sm shadow-[#D4AF37]/20'
-                          : 'hover:bg-[#ECE8E3]/10'
+                          ? 'bg-[#D4AF37]/20 text-[#D4AF37] living-card'
+                          : 'hover:bg-[#ECE8E3]/10 instant-glow'
                       }`}
                     >
                       <span>{category.name}</span>
-                      <span className="float-right text-sm text-[#ECE8E3]/60 living-icon">
+                      <span className="float-right text-sm text-[#ECE8E3]/60">
                         {category.count}
                       </span>
                     </button>
@@ -202,7 +202,7 @@ const Marketplace: React.FC = () => {
                 <p className="text-[#ECE8E3]/70">
                   Showing {filteredProducts.length} of {products.length} products
                 </p>
-                <select className="px-4 py-2 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none shadow-sm shadow-black/5 transition-all duration-300">
+                <select className="px-4 py-2 bg-[#ECE8E3]/10 border border-[#ECE8E3]/20 rounded-lg focus:border-[#D4AF37] focus:outline-none instant-glow">
                   <option style={{ backgroundColor: '#08070A', color: '#ECE8E3' }}>Sort by: Featured</option>
                   <option style={{ backgroundColor: '#08070A', color: '#ECE8E3' }}>Price: Low to High</option>
                   <option style={{ backgroundColor: '#08070A', color: '#ECE8E3' }}>Price: High to Low</option>
@@ -219,7 +219,7 @@ const Marketplace: React.FC = () => {
             }`}>
               {filteredProducts.map((product, index) => (
                 <FadeInUp key={product.id} delay={400 + index * 50}>
-                  <div className={`group bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-xl overflow-hidden transition-all duration-300 living-card shadow-md shadow-black/5 ${
+                  <div className={`group bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-xl overflow-hidden hover:border-[#D4AF37]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#D4AF37]/10 hover:-translate-y-2 living-card ${
                     viewMode === 'list' ? 'flex' : ''
                   }`}>
                     <div className={`relative ${viewMode === 'list' ? 'w-48 flex-shrink-0' : 'aspect-square'}`}>
@@ -234,10 +234,10 @@ const Marketplace: React.FC = () => {
                         </div>
                       )}
                       <div className="absolute top-3 right-3 flex gap-2">
-                        <button className="p-2 bg-black/20 backdrop-blur-sm rounded-full hover:bg-[#D4AF37]/20 transition-all duration-300 shadow-md shadow-black/20">
+                        <button className="p-2 bg-black/20 backdrop-blur-sm rounded-full hover:bg-[#D4AF37]/20 transition-all duration-200 wobble-on-hover instant-glow living-icon">
                           <Heart className="w-4 h-4" />
                         </button>
-                        <button className="p-2 bg-black/20 backdrop-blur-sm rounded-full hover:bg-[#D4AF37]/20 transition-all duration-300 shadow-md shadow-black/20">
+                        <button className="p-2 bg-black/20 backdrop-blur-sm rounded-full hover:bg-[#D4AF37]/20 transition-all duration-200 wobble-on-hover instant-glow living-icon">
                           <Eye className="w-4 h-4" />
                         </button>
                       </div>
@@ -258,13 +258,13 @@ const Marketplace: React.FC = () => {
                       <p className="text-[#ECE8E3]/60 text-sm mb-4">{product.location}</p>
 
                       <div className="flex items-center gap-2 mb-4">
-                        <span className="text-2xl font-bold text-[#D4AF37] living-icon">
+                        <span className="text-2xl font-bold text-[#D4AF37]">
                           ₹{product.price.toLocaleString()}
                         </span>
                         <span className="text-[#ECE8E3]/50 line-through">
                           ₹{product.originalPrice.toLocaleString()}
                         </span>
-                        <span className="text-sm text-green-400 glow-text">
+                        <span className="text-sm text-green-400">
                           {Math.round((1 - product.price / product.originalPrice) * 100)}% off
                         </span>
                       </div>
@@ -276,12 +276,12 @@ const Marketplace: React.FC = () => {
                       <div className="flex gap-2">
                         <button
                           disabled={!product.inStock}
-                          className="reward-button flex-1 px-4 py-2 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-medium rounded-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-md shadow-[#D4AF37]/20 transition-all duration-300"
+                          className="reward-button btn-reward-instant shimmer-hover flex-1 px-4 py-2 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-medium rounded-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                         >
                           <ShoppingCart className="w-4 h-4 mr-2" />
                           Add to Cart
                         </button>
-                        <button className="px-4 py-2 border-2 border-[#ECE8E3]/30 hover:border-[#D4AF37] hover:bg-[#ECE8E3]/5 rounded-lg transition-all duration-300 shadow-sm shadow-black/5">
+                        <button className="px-4 py-2 border-2 border-[#ECE8E3]/30 hover:border-[#D4AF37] hover:bg-[#ECE8E3]/5 rounded-lg transition-all duration-200 wobble-on-hover instant-glow">
                           Quote
                         </button>
                       </div>
@@ -293,22 +293,22 @@ const Marketplace: React.FC = () => {
 
             <FadeInUp delay={600} className="mt-12 flex justify-center">
               <div className="flex items-center gap-2">
-                <button className="px-4 py-2 border-2 border-[#ECE8E3]/30 rounded-lg hover:border-[#D4AF37] hover:bg-[#ECE8E3]/5 transition-all duration-300 shadow-sm shadow-black/5">
+                <button className="px-4 py-2 border-2 border-[#ECE8E3]/30 rounded-lg hover:border-[#D4AF37] hover:bg-[#ECE8E3]/5 transition-all duration-200 wobble-on-hover instant-glow">
                   Previous
                 </button>
                 {[1, 2, 3, 4, 5].map((page) => (
                   <button
                     key={page}
-                    className={`px-4 py-2 rounded-lg transition-all duration-300 ${
+                    className={`px-4 py-2 rounded-lg transition-all duration-200 instant-glow ${
                       page === 1
-                        ? 'bg-[#D4AF37] text-[#08070A] shadow-md shadow-[#D4AF37]/20'
-                        : 'border-2 border-[#ECE8E3]/30 hover:border-[#D4AF37] hover:bg-[#ECE8E3]/5 shadow-sm shadow-black/5'
+                        ? 'bg-[#D4AF37] text-[#08070A]'
+                        : 'border-2 border-[#ECE8E3]/30 hover:border-[#D4AF37] hover:bg-[#ECE8E3]/5'
                     }`}
                   >
                     {page}
                   </button>
                 ))}
-                <button className="px-4 py-2 border-2 border-[#ECE8E3]/30 rounded-lg hover:border-[#D4AF37] hover:bg-[#ECE8E3]/5 transition-all duration-300 shadow-sm shadow-black/5">
+                <button className="px-4 py-2 border-2 border-[#ECE8E3]/30 rounded-lg hover:border-[#D4AF37] hover:bg-[#ECE8E3]/5 transition-all duration-200 wobble-on-hover instant-glow">
                   Next
                 </button>
               </div>
