@@ -194,10 +194,10 @@ const Pricing: React.FC = () => {
         <FadeInUp delay={100} className="mb-20">
           <div className="grid md:grid-cols-3 gap-8">
             {plans.map((plan, index) => (
-              <div key={index} className={`relative p-8 rounded-3xl border transition-all duration-300 living-card ${
-                plan.popular
-                  ? 'border-[#D4AF37] bg-gradient-to-b from-[#D4AF37]/10 to-transparent scale-105 shadow-xl shadow-black/10'
-                  : 'border-[#ECE8E3]/20 bg-[#ECE8E3]/5 shadow-md shadow-black/5'
+              <div key={index} className={`relative p-8 rounded-3xl border transition-all duration-300 hover:-translate-y-2 ${
+                plan.popular 
+                  ? 'border-[#D4AF37] bg-gradient-to-b from-[#D4AF37]/10 to-transparent scale-105 shadow-xl shadow-[#D4AF37]/20' 
+                  : 'border-[#ECE8E3]/20 bg-[#ECE8E3]/5 hover:border-[#D4AF37]/50 hover:shadow-xl hover:shadow-[#D4AF37]/10'
               }`}>
                 
                 {plan.popular && (
@@ -213,12 +213,12 @@ const Pricing: React.FC = () => {
                   <h3 className="text-2xl font-['Playfair_Display'] font-bold mb-2">{plan.name}</h3>
                   <p className="text-[#ECE8E3]/70 mb-6">{plan.description}</p>
                   <div className="mb-4">
-                    <span className="text-5xl font-bold bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent living-icon">
+                    <span className="text-5xl font-bold bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
                       {getPrice(plan)}
                     </span>
                     <span className="text-[#ECE8E3]/60 text-lg">{plan.period}</span>
                   </div>
-                  <p className="text-sm text-[#D4AF37] font-medium glow-text">{plan.savings}</p>
+                  <p className="text-sm text-[#D4AF37] font-medium">{plan.savings}</p>
                 </div>
 
                 <ul className="space-y-4 mb-8">
@@ -230,12 +230,12 @@ const Pricing: React.FC = () => {
                   ))}
                 </ul>
 
-                <button
+                <button 
                   onClick={() => handlePayment(plan.name)}
-                  className={`reward-button w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 ${
+                  className={`reward-button w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 interactive-glow ${
                     plan.popular
-                      ? 'bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] shadow-lg shadow-[#D4AF37]/20'
-                      : 'border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#08070A] shadow-md shadow-black/5'
+                      ? 'bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] hover:shadow-lg hover:shadow-[#D4AF37]/30 hover:-translate-y-2 hover:scale-110 soft-glow'
+                      : 'border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#08070A] hover:-translate-y-1 hover:scale-105 hover-glow-enhanced'
                   }`}
                 >
                   {plan.cta}
@@ -248,7 +248,7 @@ const Pricing: React.FC = () => {
 
         {/* Payment Methods */}
         <FadeInUp delay={200} className="mb-20">
-          <div className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-3xl p-8 shadow-lg shadow-black/5">
+          <div className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-3xl p-8">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-['Playfair_Display'] font-bold mb-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
                 Secure Payment Methods
@@ -259,20 +259,20 @@ const Pricing: React.FC = () => {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div className="flex flex-col items-center p-6 bg-[#ECE8E3]/5 rounded-xl shadow-sm shadow-black/5 living-card">
-                <CreditCard className="w-12 h-12 text-[#D4AF37] mb-4 living-icon" />
+              <div className="flex flex-col items-center p-6 bg-[#ECE8E3]/5 rounded-xl">
+                <CreditCard className="w-12 h-12 text-[#D4AF37] mb-4" />
                 <h3 className="font-semibold mb-2">Cards & UPI</h3>
                 <p className="text-[#ECE8E3]/70 text-sm">Credit cards, debit cards, and UPI payments</p>
               </div>
-
-              <div className="flex flex-col items-center p-6 bg-[#ECE8E3]/5 rounded-xl shadow-sm shadow-black/5 living-card">
-                <Shield className="w-12 h-12 text-[#D4AF37] mb-4 living-icon" />
+              
+              <div className="flex flex-col items-center p-6 bg-[#ECE8E3]/5 rounded-xl">
+                <Shield className="w-12 h-12 text-[#D4AF37] mb-4" />
                 <h3 className="font-semibold mb-2">Bank Transfer</h3>
                 <p className="text-[#ECE8E3]/70 text-sm">Direct bank transfers and net banking</p>
               </div>
-
-              <div className="flex flex-col items-center p-6 bg-[#ECE8E3]/5 rounded-xl shadow-sm shadow-black/5 living-card">
-                <Zap className="w-12 h-12 text-[#D4AF37] mb-4 living-icon" />
+              
+              <div className="flex flex-col items-center p-6 bg-[#ECE8E3]/5 rounded-xl">
+                <Zap className="w-12 h-12 text-[#D4AF37] mb-4" />
                 <h3 className="font-semibold mb-2">Instant Processing</h3>
                 <p className="text-[#ECE8E3]/70 text-sm">Real-time payment processing and confirmation</p>
               </div>
@@ -293,9 +293,9 @@ const Pricing: React.FC = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {addOns.map((addon, index) => (
-              <div key={index} className="p-6 bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl transition-all duration-300 living-card shadow-md shadow-black/5">
+              <div key={index} className="p-6 bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl hover:border-[#D4AF37]/30 transition-all duration-200 hover:shadow-lg hover:shadow-[#D4AF37]/10">
                 <h3 className="font-semibold mb-2">{addon.name}</h3>
-                <p className="text-2xl font-bold text-[#D4AF37] mb-3 living-icon">{addon.price}</p>
+                <p className="text-2xl font-bold text-[#D4AF37] mb-3">{addon.price}</p>
                 <p className="text-[#ECE8E3]/70 text-sm leading-relaxed">{addon.description}</p>
               </div>
             ))}
@@ -315,7 +315,7 @@ const Pricing: React.FC = () => {
 
           <div className="max-w-4xl mx-auto space-y-6">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-8 transition-all duration-300 living-card shadow-md shadow-black/5">
+              <div key={index} className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-8 hover:border-[#D4AF37]/20 transition-colors duration-200">
                 <h3 className="font-semibold mb-4 text-lg text-[#D4AF37]">{faq.question}</h3>
                 <p className="text-[#ECE8E3]/80 leading-relaxed">{faq.answer}</p>
               </div>
@@ -334,14 +334,14 @@ const Pricing: React.FC = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
+              <button 
                 onClick={() => handlePayment('professional')}
-                className="reward-button px-10 py-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-bold text-lg rounded-xl shadow-lg shadow-[#D4AF37]/20 transition-all duration-300"
+                className="reward-button px-10 py-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-bold text-lg rounded-xl hover:shadow-xl hover:shadow-[#D4AF37]/30 transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 soft-glow"
               >
                 Start Free Trial
                 <ArrowRight className="inline-block w-5 h-5 ml-2" />
               </button>
-              <button onClick={() => window.open("https://wa.me/919739001020", "_blank")} className="px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#08070A] rounded-xl transition-all duration-300 font-semibold shadow-md shadow-black/5">
+              <button onClick={() => window.open("https://wa.me/919739001020", "_blank")} className="px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#08070A] rounded-xl transition-all duration-300 font-semibold hover:-translate-y-1 hover:scale-105 hover-glow">
                 Contact Sales
               </button>
             </div>

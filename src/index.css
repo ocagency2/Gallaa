@@ -7,40 +7,30 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Premium subtle animations */
+/* Luxury animations */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-4px); }
+  50% { transform: translateY(-10px); }
 }
 
-@keyframes gentle-float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-3px); }
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 5px rgba(212, 175, 55, 0.3); }
+  50% { text-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 0 30px rgba(255, 215, 119, 0.4); }
 }
 
-@keyframes subtle-shimmer {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.85; }
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 0 30px rgba(255, 215, 119, 0.4); }
 }
 
-@keyframes soft-pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.9;
-  }
-  50% {
-    transform: scale(1.02);
-    opacity: 1;
-  }
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
 }
 
-@keyframes inner-glow {
-  0%, 100% {
-    box-shadow: inset 0 0 0 rgba(212, 175, 55, 0);
-  }
-  50% {
-    box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.15);
-  }
+@keyframes gentle-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
 }
 
 /* Floating animations */
@@ -91,40 +81,49 @@ html {
 }
 
 .soft-glow {
-  animation: inner-glow 4s ease-in-out infinite;
+  animation: gentle-glow 6s ease-in-out infinite;
 }
 
 /* Glow effects */
 .glow-text {
-  animation: blink-highlight 3s ease-in-out infinite;
+  animation: glow 2s ease-in-out infinite alternate;
 }
 
-/* Premium button animations */
+/* Reward button animations */
 .reward-button {
   position: relative;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.reward-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.reward-button:hover::before {
+  left: 100%;
+}
+
 .reward-button:hover {
-  transform: translateY(-2px);
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.1), 0 8px 24px rgba(212, 175, 55, 0.2);
+  animation: pulse-glow 0.5s ease-in-out;
+  transform: translateY(-2px) scale(1.02);
 }
 
-.reward-button:active {
-  transform: translateY(0) scale(0.98);
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(212, 175, 55, 0.15);
-  transition: all 0.1s ease;
-}
-
-/* Premium hover effects */
+/* Enhanced hover effects */
 .hover-lift {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hover-lift:hover {
-  transform: translateY(-2px) scale(1.01);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(212, 175, 55, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
 }
 
 .hover-glow {
@@ -132,8 +131,8 @@ html {
 }
 
 .hover-glow:hover {
-  box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.12), 0 4px 16px rgba(0, 0, 0, 0.1);
-  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+  border-color: rgba(212, 175, 55, 0.6);
 }
 
 /* Background gradient utilities */
@@ -345,23 +344,48 @@ textarea:focus-visible {
   }
 }
 
-/* Premium interactive effects */
+/* Mouse glow effect enhancements */
+.mouse-glow-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.mouse-glow-enhanced {
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(212, 175, 55, 0.06) 0%,
+    rgba(255, 215, 119, 0.03) 25%,
+    rgba(212, 175, 55, 0.01) 50%,
+    transparent 70%
+  );
+  transition: background 0.3s ease;
+}
+
+/* Enhanced hover states with glow integration */
 .hover-glow-enhanced {
   transition: all 0.3s ease;
   position: relative;
 }
 
 .hover-glow-enhanced:hover {
-  box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.1), 0 4px 16px rgba(0, 0, 0, 0.1);
-  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 
+    0 0 30px rgba(212, 175, 55, 0.4),
+    0 0 60px rgba(255, 215, 119, 0.2),
+    0 10px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(212, 175, 55, 0.6);
+  background: rgba(212, 175, 55, 0.05);
 }
 
+/* Interactive elements glow enhancement */
 .interactive-glow {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .interactive-glow:hover {
-  box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.08), 0 6px 20px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0 0 20px rgba(212, 175, 55, 0.3),
+    0 0 40px rgba(255, 215, 119, 0.15),
+    0 5px 25px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
 
@@ -461,73 +485,100 @@ textarea:focus-visible {
   }
 }
 
-/* Premium emphasis animations */
-@keyframes blink-highlight {
+/* Wobble animation for hover states */
+@keyframes wobble {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  15% { transform: translateX(-5px) rotate(-2deg); }
+  30% { transform: translateX(5px) rotate(2deg); }
+  45% { transform: translateX(-5px) rotate(-1deg); }
+  60% { transform: translateX(5px) rotate(1deg); }
+  75% { transform: translateX(-2px) rotate(-0.5deg); }
+}
+
+/* Bounce glow animation */
+@keyframes bounceGlow {
   0%, 100% {
-    text-shadow: 0 0 4px rgba(212, 175, 55, 0.2);
-    opacity: 1;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    transform: translateY(0);
   }
   50% {
-    text-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
-    opacity: 0.9;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.6), 0 0 40px rgba(255, 215, 119, 0.3);
+    transform: translateY(-3px);
   }
 }
 
-@keyframes pop-in {
-  0% {
-    transform: scale(0.97);
-    opacity: 0.9;
-  }
-  50% {
-    transform: scale(1.01);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+/* Constant subtle glow animation */
+@keyframes constantGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(212, 175, 55, 0.2); }
+  50% { box-shadow: 0 0 18px rgba(212, 175, 55, 0.4), 0 0 25px rgba(255, 215, 119, 0.2); }
 }
 
-/* Subtle living animations */
+/* Pulsing scale animation */
+@keyframes pulseScale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+/* Shake animation for emphasis */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+  20%, 40%, 60%, 80% { transform: translateX(3px); }
+}
+
+/* Living animations - constant subtle movement */
 .living-card {
-  animation: gentle-float 5s ease-in-out infinite;
-  transition: all 0.3s ease;
-}
-
-.living-card:hover {
-  animation: none;
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.08), 0 8px 24px rgba(0, 0, 0, 0.12);
+  animation: constantGlow 4s ease-in-out infinite;
 }
 
 .living-icon {
-  animation: subtle-shimmer 3s ease-in-out infinite;
+  animation: pulseScale 3s ease-in-out infinite;
 }
 
 .wobble-on-hover:hover {
-  animation: soft-pulse 0.4s ease-in-out;
+  animation: wobble 0.6s ease-in-out;
 }
 
 .instant-glow:hover {
-  box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.1), 0 4px 16px rgba(0, 0, 0, 0.1);
-  border-color: rgba(212, 175, 55, 0.4);
-  transition: all 0.3s ease;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.5), 0 0 45px rgba(255, 215, 119, 0.3);
+  border-color: rgba(212, 175, 55, 0.8);
+  transition: all 0.1s ease-out;
 }
 
-/* Premium button states */
+.blink-on-hover:hover {
+  animation: pulse-glow 0.8s ease-in-out;
+}
+
+/* Enhanced button states */
 .btn-reward-instant {
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.15s ease-out;
 }
 
 .btn-reward-instant:hover {
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.1), 0 8px 24px rgba(212, 175, 55, 0.2);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4), 0 0 40px rgba(255, 215, 119, 0.3);
 }
 
 .btn-reward-instant:active {
-  transform: translateY(0) scale(0.98);
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(212, 175, 55, 0.15);
-  transition: all 0.1s ease;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Hover state shimmer effect */
+.shimmer-hover:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmerSlide 0.8s ease-out;
+}
+
+@keyframes shimmerSlide {
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
