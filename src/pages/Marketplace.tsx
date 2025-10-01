@@ -126,7 +126,7 @@ const Marketplace: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <FadeInUp className="mb-8">
           <h1 className="text-4xl md:text-5xl font-['Playfair_Display'] font-bold mb-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent glow-text pb-2 leading-[1.3]">
-            Premium Fashion Marketplace
+            Marketplace
           </h1>
           <p className="text-xl text-[#ECE8E3]/80 max-w-3xl">
             Discover premium clothing and luxury fashion brands from verified manufacturers across India. Access exclusive wholesale pricing and credit-backed purchasing.
