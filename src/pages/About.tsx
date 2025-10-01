@@ -132,10 +132,10 @@ const About: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center group living-card">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37]/20 to-[#FFD777]/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-[#D4AF37]/30 group-hover:to-[#FFD777]/30 transition-all duration-300">
-                  <stat.icon className="w-8 h-8 text-[#D4AF37]" />
+                <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37]/20 to-[#FFD777]/20 rounded-2xl flex items-center justify-center mx-auto mb-4 transition-all duration-300 shadow-md shadow-black/10">
+                  <stat.icon className="w-8 h-8 text-[#D4AF37] living-icon" />
                 </div>
-                <div className="text-3xl font-bold text-[#D4AF37] mb-2">{stat.number}</div>
+                <div className="text-3xl font-bold text-[#D4AF37] mb-2 living-icon">{stat.number}</div>
                 <div className="text-[#ECE8E3]/70">{stat.label}</div>
               </div>
             ))}
@@ -156,9 +156,9 @@ const About: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {challenges.map((challenge, index) => (
               <FadeInUp key={index} delay={300 + index * 100}>
-                <div className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-8 living-card hover:-translate-y-1 transition-all duration-200 hover:border-[#D4AF37]/20">
+                <div className="bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-8 living-card transition-all duration-300 shadow-md shadow-black/5">
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37]/20 to-[#FFD777]/20 rounded-xl flex items-center justify-center mr-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37]/20 to-[#FFD777]/20 rounded-xl flex items-center justify-center mr-4 shadow-sm shadow-black/10">
                       <challenge.icon className="w-6 h-6 text-[#D4AF37]" />
                     </div>
                     <h3 className="text-xl font-['Playfair_Display'] font-semibold">{challenge.category}</h3>
@@ -191,8 +191,8 @@ const About: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {solutions.map((solution, index) => (
               <FadeInUp key={index} delay={500 + index * 100}>
-                <div className="group p-8 bg-gradient-to-br from-[#D4AF37]/5 to-[#FFD777]/5 border border-[#D4AF37]/20 rounded-2xl hover:from-[#D4AF37]/10 hover:to-[#FFD777]/10 hover:border-[#D4AF37]/30 transition-all duration-300 hover:shadow-xl hover:shadow-[#D4AF37]/10 living-card hover:-translate-y-2">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37]/20 to-[#FFD777]/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-[#D4AF37]/30 group-hover:to-[#FFD777]/30 transition-all duration-300">
+                <div className="group p-8 bg-gradient-to-br from-[#D4AF37]/5 to-[#FFD777]/5 border border-[#D4AF37]/20 rounded-2xl transition-all duration-300 living-card shadow-md shadow-black/5">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37]/20 to-[#FFD777]/20 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 shadow-sm shadow-black/10">
                     <solution.icon className="w-8 h-8 text-[#D4AF37]" />
                   </div>
                   <h3 className="text-xl font-['Playfair_Display'] font-semibold mb-4 group-hover:text-[#D4AF37] transition-colors duration-300">{solution.title}</h3>
@@ -205,8 +205,8 @@ const About: React.FC = () => {
 
         {/* Game Changer Section */}
         <FadeInUp delay={600} className="mb-20">
-          <div className="bg-gradient-to-br from-[#D4AF37]/10 to-[#FFD777]/5 border border-[#D4AF37]/20 rounded-3xl p-12 text-center backdrop-blur-sm living-card">
-            <Zap className="w-16 h-16 text-[#D4AF37] mx-auto mb-6" />
+          <div className="bg-gradient-to-br from-[#D4AF37]/10 to-[#FFD777]/5 border border-[#D4AF37]/20 rounded-3xl p-12 text-center backdrop-blur-sm shadow-xl shadow-black/10">
+            <Zap className="w-16 h-16 text-[#D4AF37] mx-auto mb-6 living-icon" />
             <h2 className="text-3xl md:text-4xl font-['Playfair_Display'] font-bold mb-6 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] bg-clip-text text-transparent">
               The GAME CHANGER: Daily Settlement Model
             </h2>
@@ -249,12 +249,12 @@ const About: React.FC = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
               <FadeInUp key={index} delay={800 + index * 100}>
-                <div className="group text-center bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-6 hover:border-[#D4AF37]/30 transition-all duration-300 hover:shadow-lg hover:shadow-[#D4AF37]/10 living-card hover:-translate-y-1">
+                <div className="group text-center bg-[#ECE8E3]/5 border border-[#ECE8E3]/10 rounded-2xl p-6 transition-all duration-300 living-card shadow-md shadow-black/5">
                   <div className="relative mb-6">
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-24 h-24 rounded-full mx-auto object-cover border-4 border-[#ECE8E3]/10 group-hover:border-[#D4AF37]/30 transition-colors duration-300"
+                      className="w-24 h-24 rounded-full mx-auto object-cover border-4 border-[#ECE8E3]/10 transition-all duration-300 shadow-md shadow-black/10"
                     />
                   </div>
                   <h3 className="text-lg font-semibold mb-2 group-hover:text-[#D4AF37] transition-colors duration-300">{member.name}</h3>
@@ -345,10 +345,10 @@ const About: React.FC = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="reward-button btn-reward-instant shimmer-hover px-10 py-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-bold text-lg rounded-xl">
+              <button className="reward-button px-10 py-4 bg-gradient-to-r from-[#D4AF37] to-[#FFD777] text-[#08070A] font-bold text-lg rounded-xl shadow-lg shadow-[#D4AF37]/20">
                 Get Started Today
               </button>
-              <button className="px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#08070A] rounded-xl transition-all duration-200 font-semibold wobble-on-hover instant-glow">
+              <button className="px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#08070A] rounded-xl transition-all duration-300 font-semibold wobble-on-hover shadow-md shadow-black/5">
                 Contact Us
               </button>
             </div>
